@@ -1,16 +1,248 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="refresh" content="0;url=https://www.nightscoutfoundation.org/new-products/p/direct-donation-apa26" />
-  <title>Donate — HackDiabetes 26</title>
-  <style>
-    body { font-family: sans-serif; background: #0e1117; color: #fff; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; text-align: center; }
-    a { color: #f05a3e; }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="https://hackdiabetes.io/favicon.svg" />
+    <title>Donate — HackDiabetes 26</title>
+    <meta name="description" content="Support HackDiabetes 26, the Nightscout Foundation's open-source diabetes hackathon in Vancouver. Donations are tax-deductible as allowed by US law." />
+    <meta property="og:title" content="Donate to HackDiabetes 26" />
+    <meta property="og:description" content="Help keep registration free and bring builders together to create open-source diabetes tools." />
+    <meta property="og:image" content="https://hackdiabetes.io/images/hackdiabetes.png" />
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { overflow-x: hidden; }
+        body { overflow-x: hidden; font-family: "Inter", -apple-system, sans-serif; background: #0e1117; color: #fff; min-height: 100vh; }
+
+        :root {
+            --dark:    #0e1117;
+            --dark2:   #161b26;
+            --dark3:   #1e2535;
+            --green:   #27c55e;
+            --orange:  #f05a3e;
+            --orange2: #d44429;
+            --border:  rgba(255,255,255,.08);
+        }
+
+        /* ── HEADER ── */
+        header {
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2.5rem;
+            height: 68px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 0 rgba(0,0,0,.1);
+        }
+        .hdr-logos { display: flex; align-items: center; gap: 1.5rem; }
+        .hdr-logos img { height: 42px; width: auto; display: block; }
+        .hdr-logos img.nsf { height: 38px; }
+        .hdr-sep { width: 1px; height: 28px; background: #e5e7eb; }
+        .hdr-nav { display: flex; align-items: center; gap: .25rem; }
+        .hdr-nav a { color: #374151; text-decoration: none; font-size: 13px; font-weight: 600; padding: 6px 12px; border-radius: 6px; transition: background .15s, color .15s; }
+        .hdr-nav a:hover { background: #f3f4f6; color: #111; }
+        @media (max-width: 600px) {
+            header { padding: 0 1rem; }
+            .hdr-nav { display: none; }
+            .hdr-logos { gap: 1rem; }
+            .hdr-logos img { height: 34px; }
+            .hdr-logos img.nsf { height: 30px; }
+        }
+
+        /* ── HERO ── */
+        .page-hero {
+            background: var(--dark) url(https://hackdiabetes.io/images/blob.svg) no-repeat;
+            background-size: cover;
+            background-position: 50% 100%;
+            padding: 5rem 2.5rem 4rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .hero-grid { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 420px); gap: 4rem; align-items: center; }
+        .eyebrow { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; margin-bottom: 1.5rem; }
+        .eyebrow span { white-space: nowrap; }
+        .eyebrow span { font-size: 11px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.4); }
+        .eyebrow .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--orange); }
+        .page-hero h1 { font-size: clamp(36px, 5.5vw, 64px); font-weight: 900; line-height: 1; letter-spacing: -.03em; margin-bottom: 1.25rem; }
+        .page-hero h1 .accent { color: var(--orange); }
+        .page-hero p { font-size: 16px; color: rgba(255,255,255,.55); line-height: 1.7; max-width: 520px; margin-bottom: .75rem; }
+
+        /* ── DONATE CARD ── */
+        .give {
+            background: var(--dark2);
+            border: 1.5px solid rgba(240,90,62,.3);
+            border-radius: 14px;
+            padding: 2rem;
+            box-shadow: 0 20px 50px rgba(0,0,0,.35);
+        }
+        .give-label { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--orange); margin-bottom: .6rem; }
+        .give h2 { font-size: 22px; font-weight: 900; letter-spacing: -.02em; margin-bottom: .5rem; }
+        .give p { font-size: 14px; color: rgba(255,255,255,.55); line-height: 1.6; margin-bottom: 1.5rem; }
+        .btn {
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            width: 100%;
+            background: var(--orange); color: #fff;
+            font-size: 16px; font-weight: 800; text-decoration: none;
+            padding: 15px 28px; border-radius: 8px;
+            box-shadow: 0 4px 14px rgba(240,90,62,.35);
+            transition: background .15s;
+        }
+        .btn:hover { background: var(--orange2); }
+        .btn:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+        .secure { display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 1rem; font-size: 12px; color: rgba(255,255,255,.4); }
+        .give .tax { font-size: 12px; color: rgba(255,255,255,.35); margin: 1.25rem 0 0; padding-top: 1.25rem; border-top: 1px solid var(--border); }
+
+        /* ── MAIN ── */
+        .main { max-width: 1080px; margin: 0 auto; padding: 4rem 2.5rem 6rem; }
+        .section-label { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.3); margin-bottom: 1.25rem; }
+        .uses { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 3.5rem; }
+        .use { background: var(--dark2); border: 1px solid rgba(255,255,255,.07); border-radius: 12px; padding: 1.5rem; }
+        .use .icon { font-size: 22px; margin-bottom: .75rem; }
+        .use h3 { font-size: 16px; font-weight: 700; margin-bottom: .5rem; }
+        .use p { font-size: 13px; color: rgba(255,255,255,.45); line-height: 1.6; }
+
+        .faq { background: var(--dark2); border: 1px solid rgba(255,255,255,.07); border-radius: 14px; padding: .5rem 2rem; margin-bottom: 2.5rem; }
+        details { border-bottom: 1px solid var(--border); }
+        details:last-child { border-bottom: 0; }
+        summary { list-style: none; cursor: pointer; padding: 1.25rem 2rem 1.25rem 0; position: relative; font-size: 15px; font-weight: 700; }
+        summary::-webkit-details-marker { display: none; }
+        summary::after { content: "+"; position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size: 20px; font-weight: 400; color: var(--orange); }
+        details[open] summary::after { content: "–"; }
+        details p { font-size: 14px; color: rgba(255,255,255,.55); line-height: 1.7; padding-bottom: 1.25rem; }
+        details a { color: var(--orange); }
+
+        .cta { background: linear-gradient(135deg, rgba(240,90,62,.12), rgba(240,90,62,.04)); border: 1.5px solid rgba(240,90,62,.25); border-radius: 14px; padding: 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+        .cta h2 { font-size: 18px; font-weight: 800; margin-bottom: .5rem; }
+        .cta p { font-size: 14px; color: rgba(255,255,255,.5); line-height: 1.6; max-width: 520px; }
+        .cta .btn-ghost { display: inline-flex; align-items: center; gap: 8px; background: var(--dark3); border: 1.5px solid rgba(255,255,255,.15); color: #fff; font-size: 14px; font-weight: 800; padding: 13px 28px; border-radius: 8px; text-decoration: none; white-space: nowrap; }
+        .cta .btn-ghost:hover { border-color: var(--orange); }
+
+        /* ── FOOTER ── */
+        footer { background: #000; padding: 2rem 2.5rem; text-align: center; }
+        footer p { font-size: 12px; color: rgba(255,255,255,.3); line-height: 1.7; max-width: 760px; margin: 0 auto; }
+        footer p + p { margin-top: .75rem; }
+        footer a { color: rgba(255,255,255,.45); text-decoration: none; }
+        footer a:hover { color: var(--orange); }
+
+        @media (max-width: 860px) {
+            .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .give { max-width: 480px; width: 100%; }
+        }
+        @media (max-width: 600px) {
+            .page-hero { padding: 3rem 1rem; }
+            .main { padding: 3rem 1rem 4rem; }
+            .give, .cta { padding: 1.5rem; }
+            .faq { padding: .25rem 1.25rem; }
+            footer { padding: 2rem 1rem; }
+        }
+    </style>
 </head>
 <body>
-  <p>Redirecting to donation page… <a href="https://www.nightscoutfoundation.org/new-products/p/direct-donation-apa26">click here if not redirected</a>.</p>
-  <script>window.location.replace("https://www.nightscoutfoundation.org/new-products/p/direct-donation-apa26");</script>
+
+<header>
+    <div class="hdr-logos">
+        <a href="https://hackdiabetes.io/"><img src="https://hackdiabetes.io/images/hackdiabetes.png" alt="HackDiabetes" /></a>
+        <div class="hdr-sep"></div>
+        <a href="https://www.nightscoutfoundation.org/">
+            <img class="nsf" src="https://hackdiabetes.io/images/NSF-Text.png" alt="The Nightscout Foundation" />
+        </a>
+    </div>
+    <nav class="hdr-nav" aria-label="Main">
+        <a href="https://hackdiabetes.io/#about">About</a>
+        <a href="https://hackdiabetes.io/sponsorship">Sponsorship</a>
+    </nav>
+</header>
+
+<main>
+    <section class="page-hero">
+        <div class="hero-grid">
+            <div>
+                <div class="eyebrow">
+                    <span>HackDiabetes 26</span>
+                    <div class="dot"></div>
+                    <span>Vancouver · Nov 14–16, 2026</span>
+                </div>
+                <h1>Fuel the builders.<br><span class="accent">Change diabetes.</span></h1>
+                <p>HackDiabetes brings developers, clinicians, and people living with diabetes together for a weekend of building open-source tools that matter.</p>
+                <p>Your gift keeps registration free and helps bring the people behind these tools into one room.</p>
+            </div>
+
+            <div class="give" id="donate">
+                <div class="give-label">Personal donation</div>
+                <h2>Give any amount</h2>
+                <p>Choose your amount on the next page. Every gift, large or small, goes to HackDiabetes and the Nightscout Foundation's open-source work.</p>
+                <a class="btn" href="https://donate.stripe.com/9B6bJ3a0G2aPfi865DgIo09">♥ Donate now →</a>
+                <div class="secure">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+                    Secure checkout powered by Stripe
+                </div>
+                <p class="tax">The Nightscout Foundation is a US IRS recognized 501(c)(3) organization. Tax EIN <span style="white-space:nowrap">47-2130306</span>.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="main">
+        <div class="section-label">Where your donation goes</div>
+        <div class="uses">
+            <div class="use">
+                <div class="icon" aria-hidden="true">🎟️</div>
+                <h3>Free registration</h3>
+                <p>Participants attend at no cost, so the right people can be in the room.</p>
+            </div>
+            <div class="use">
+                <div class="icon" aria-hidden="true">✈️</div>
+                <h3>Travel &amp; accommodation</h3>
+                <p>Helping volunteer developers and community members get to Vancouver.</p>
+            </div>
+            <div class="use">
+                <div class="icon" aria-hidden="true">🍕</div>
+                <h3>Venue &amp; meals</h3>
+                <p>Space, power, networking, and food to keep everyone going all weekend.</p>
+            </div>
+            <div class="use">
+                <div class="icon" aria-hidden="true">💻</div>
+                <h3>Open-source work</h3>
+                <p>Everything built is open-source and community-owned, and supports the Foundation's work year-round.</p>
+            </div>
+        </div>
+
+        <div class="section-label">Questions</div>
+        <div class="faq">
+            <details>
+                <summary>Is my donation tax-deductible?</summary>
+                <p>The Nightscout Foundation is a US IRS recognized 501(c)(3) organization, and contributions are deductible as allowed by US tax law. Please check with your tax advisor for complete details.</p>
+            </details>
+            <details>
+                <summary>Who receives my donation?</summary>
+                <p>Donations are made to the Nightscout Foundation, which runs HackDiabetes. Gifts made on this page support HackDiabetes and the Foundation's open-source work.</p>
+            </details>
+            <details>
+                <summary>Will I get a receipt?</summary>
+                <p>Yes. Stripe emails a receipt to the address you enter at checkout.</p>
+            </details>
+            <details>
+                <summary>Can I donate in honor or in memory of someone?</summary>
+                <p>Yes! After you donate, please <a href="https://www.nightscoutfoundation.org/contact">contact us</a> with the honoree or memorial name, and the name and email address of the person we should notify.</p>
+            </details>
+        </div>
+
+        <div class="cta">
+            <div>
+                <h2>Giving on behalf of an organization?</h2>
+                <p>Corporate sponsorship tiers include logo placement, team passes, and speaking slots. Custom and in-kind packages are welcome.</p>
+            </div>
+            <a class="btn-ghost" href="https://hackdiabetes.io/sponsorship">View sponsorship →</a>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>HackDiabetes 26 · Nov 14–16, 2026 · <a href="https://www.nightscoutfoundation.org/">The Nightscout Foundation</a> · JW Marriott Parq Vancouver</p>
+    <p>The Nightscout Foundation is a US IRS Recognized 501(c)3 Organization, and contributions are deductible as allowed by US Tax Code. Consult your tax professional for full details. Our Tax EIN is 47-2130306.</p>
+</footer>
+
 </body>
 </html>
